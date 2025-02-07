@@ -1,3 +1,14 @@
+.weather-container {
+    width: 450px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    transition: background 0.5s ease-in-out;
+}
+
 .weather-header {
     background: #1b2a41;
     color: white;
@@ -109,19 +120,8 @@
     }
 }
 
-.weather-container {
-    width: 450px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    transition: background 0.5s ease-in-out;
-}
-
 .clear-sky {
-    background: linear-gradient(to right, #56ccf2, #2f80ed);
+    background:u linear-gradient(to right, #56ccf2, #2f80ed);
     color: black;
 }
 
