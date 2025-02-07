@@ -1,6 +1,46 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Default Background */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Weather Backgrounds */
+.clear-sky {
+  background: linear-gradient(to right, #56ccf2, #2f80ed);
+  color: white;
+}
+
+.cloudy {
+  background: linear-gradient(to right, #bdc3c7, #2c3e50);
+  color: white;
+}
+
+.rainy {
+  background: linear-gradient(to right, #4a90e2, #1e3c72);
+  color: white;
+}
+
+.stormy {
+  background: linear-gradient(to right, #000000, #434343);
+  color: white;
+}
+
+.snowy {
+  background: linear-gradient(to right, #e6e9f0, #eef1f5);
+  color: black;
+}
+
+.foggy {
+  background: linear-gradient(to right, #757f9a, #d7dde8);
+  color: black;
+}
+
+.default-bg {
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: black;
 }

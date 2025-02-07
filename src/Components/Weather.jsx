@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Weather.css';
 
-const Weather = () => {
+const Weather = ({ setWeatherCondition }) => {
     const [city, setCity] = useState('');
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState('');
@@ -14,8 +14,11 @@ const Weather = () => {
         }
 
         try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=97572b6d2096110a47cda11e64fe3d87`);
+            const response = await axios.get(
+                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=97572b6d2096110a47cda11e64fe3d87&units=metric`
+            );
             setWeatherData(response.data);
+            setWeatherCondition(response.data.weather[0].description);
             setError('');
             console.log(response.data);
         } catch (error) {
@@ -45,12 +48,7 @@ const Weather = () => {
                 <h2>Weather Forecast</h2>
             </div>
             <form onSubmit={handleSubmit} className="search-form">
-                <input
-                    type="text"
-                    placeholder="Enter city name"
-                    value={city}
-                    onChange={handleInputChange}
-                />
+                <input type="text" placeholder="Enter city name" value={city} onChange={handleInputChange} />
                 <button type="submit">🔍</button>
             </form>
             {error && <p className="error-message">{error}</p>}
@@ -60,10 +58,7 @@ const Weather = () => {
                     <h3>{weatherData.name}</h3>
                     <p className="date">{new Date().toDateString()}</p>
                     <div className="weather-icon">
-                        <img
-                            src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-                            alt="Weather Icon"
-                        />
+                        <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="Weather Icon" />
                     </div>
                     <p className="temperature">{Math.round(weatherData.main.temp)}°C</p>
                     <p className="description">{weatherData.weather[0].description}</p>
@@ -83,15 +78,11 @@ const Weather = () => {
                         </div>
                         <div className="detail">
                             <p>🌅 Sunrise</p>
-                            <span>
-                                {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString()}
-                            </span>
+                            <span>{new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString()}</span>
                         </div>
                         <div className="detail">
                             <p>🌇 Sunset</p>
-                            <span>
-                                {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString()}
-                            </span>
+                            <span>{new Date(weatherData.sys.sunset * 1000).toLocaleTimeString()}</span>
                         </div>
                     </div>
                 </div>
