@@ -1,4 +1,3 @@
-/* Default Background */
 .app-container {
   width: 100vw;
   height: 100vh;
@@ -8,8 +7,6 @@
   justify-content: center;
   transition: background 0.5s ease-in-out;
 }
-
-/* Weather Backgrounds */
 .clear-sky {
   background: linear-gradient(to right, #56ccf2, #2f80ed);
   color: white;
