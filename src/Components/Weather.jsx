@@ -42,7 +42,7 @@ const Weather = () => {
     return (
         <div className="weather-container">
             <div className="weather-header">
-                <h2>Kandy Weather Forecast</h2>
+                <h2>Weather Forecast</h2>
             </div>
             <form onSubmit={handleSubmit} className="search-form">
                 <input
