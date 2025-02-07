@@ -61,7 +61,7 @@ const Weather = ({ setWeatherCondition }) => {
     };
 
     useEffect(() => {
-        fetchData();
+        fetchWeatherByLocation();
     }, []);
 
     const handleInputChange = (e) => {
